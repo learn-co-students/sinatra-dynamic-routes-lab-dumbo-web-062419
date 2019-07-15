@@ -32,7 +32,7 @@ class App < Sinatra::Base
 
   end
 
-  get '/:operation/:number1/:number2'
+  get '/:operation/:number1/:number2' do
 
   @operation = params[:operation]
   @number1 = params[:number1].to_i 
@@ -44,13 +44,11 @@ class App < Sinatra::Base
     @message =  "#{@number1 - @number2}"
   elsif @operation == "multiply"
     @message = "#{@number1 * @number2}"
-  else @operation == "divide"
+  elsif @operation == "divide"
     @message = "#{@number1 / @number2}"
   end 
 
   "#{@message}"
-
-
   end
 
 
